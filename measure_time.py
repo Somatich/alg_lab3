@@ -36,12 +36,19 @@ def measure_search_time(search_alg, sz, repeats):
 
 
 def main():
-    sizes = []
-    avg_time = []
+    sizesl = []
+    avg_timel = []
     for sz in tqdm(range(10, 50000, 1000)):
-        sizes.append(sz)
-        avg_time.append(measure_search_time(linear_search, sz, 500))
-    plt.plot(sizes, avg_time)
+        sizesl.append(sz)
+        avg_timel.append(measure_search_time(linear_search, sz, 500))
+    sizesb = []
+    avg_timeb = []    
+    for sz in tqdm(range(10, 50000, 1000)):
+        sizesb.append(sz)
+        avg_timeb.append(measure_search_time(binary_search, sz, 500))
+    
+    plt.plot(sizesl, avg_timel)
+    plt.plot(sizesb, avg_timeb)
     plt.show()
 
 
